@@ -82,6 +82,7 @@ const Clients = {
   City: "panipat",                                  // String
   State: "haryana",                                 // String
   Country: "India",                                 // String
+  Website: "https://www.bluelagoon.com",
   DeliveryAddresses: [                              // Array of objects
     {
       Address: "343, Industrial area",              // String
