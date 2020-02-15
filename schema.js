@@ -18,6 +18,7 @@ const company = {
     "https://images.freeimages.com/images/large-previews/72c/fox-1522156.jpg",      // String               // Upload field
   Transports: [Transports],                         // Array of references to the transport object
   Products: [Products],
+  Clients: [Clients],
   Industry: "Handloom",                             // String
   Fiscalyear: {                                     
     start: 1585699200000,                           // Timestamp: 1st april 2020                            // Dropdown with options (apr-mar and jan-dec)              
