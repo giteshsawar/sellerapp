@@ -7,6 +7,7 @@ const company = {
   ],                                                                                                        // Multiple inputs with + and - button to add new and remove
   phone: 9878654532,                                // Number
   otherPhones: [7865451223, 9878545632],            // Array of numbers                                     // Multiple inputs with + and - button to add new and remove
+  website: "https://www.shrinshanihandloom.com",    // String
   GSTNo: "09234JDHDSD34H34W223",                    // String
   Address: "343, Industrial area",                  // String
   Zipcode: 132103,                                  // Number
