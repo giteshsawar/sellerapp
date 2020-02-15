@@ -101,6 +101,7 @@ const Clients = {
 const BankAccount = {
   Bankname: "ICICI",                                // String
   Accno: 23408324082203,                            // Number
+  CurrentBalance: 500000,                           // Number         
   IFSCcode: "ICIC000023"                            // String
 };
 
