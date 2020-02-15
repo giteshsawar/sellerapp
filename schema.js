@@ -1,4 +1,4 @@
-const company = {
+const Company = {
   Name: "Shri shani handloom",                      // String
   email: "shrishanihandloom@gmail.com",             // String
   otherEmails: [                                    // Array of strings
@@ -12,33 +12,19 @@ const company = {
   Address: "343, Industrial area",                  // String
   Zipcode: 132103,                                  // Number
   City: "panipat",                                  // String                                               // Dropdown field
-  State: "haryana",                                 // String                                               // Dropdown field 
+  State: "haryana",                                 // String                                               // Dropdown field
   Country: "India",                                 // String                                               // Dropdown field
   Logo:
     "https://images.freeimages.com/images/large-previews/72c/fox-1522156.jpg",      // String               // Upload field
-  Transports: [Transports],                         // Array of references to the transport object
   Products: [Products],
+  Services: [Services],
   Clients: [Clients],
   Industry: "Handloom",                             // String
-  Fiscalyear: {                                     
-    start: 1585699200000,                           // Timestamp: 1st april 2020                            // Dropdown with options (apr-mar and jan-dec)              
-    end: 1585612800000                              // Timestamp: 31st mar 2021                                            
+  Fiscalyear: {
+    start: 1585699200000,                           // Timestamp: 1st april 2020                            // Dropdown with options (apr-mar and jan-dec)
+    end: 1585612800000                              // Timestamp: 31st mar 2021
   },
-  Warehouses: [Warehouses],                         // Array of reference to the warehouses
   Users: [User]                                     // Array of reference of users
-};
-
-const Transports = {
-  Company: Company,                                 // Reference of the company
-  Name: "LK transports",                            // String
-  Contact: "Raju",                                  // String
-  GSTNo: "09234JDHDSD34H34W223",                    // String
-  Phone: 9845653245,                                // Number
-  Address: "343, Industrial area",                  // String
-  Zipcode: 132103,                                  // Number
-  City: "panipat",                                  // String
-  State: "haryana",                                 // String
-  Country: "India",                                 // String
 };
 
 const Warehouses = {
@@ -76,6 +62,7 @@ const Clients = {
   phone: 9878654532,                                // Number
   otherPhones: [7865451223, 9878545632],            // Array of numbers
   Contacts: [User],                                 // Array of reference to the users
+  profileLink: "https://ledgerapp/company/bluelagoon",           // String
   GSTNo: "09234JDHDSD34H34W223",                    // String
   Address: "343, Industrial area",                  // String
   Zipcode: 132103,                                  // Number
@@ -83,6 +70,7 @@ const Clients = {
   State: "haryana",                                 // String
   Country: "India",                                 // String
   Website: "https://www.bluelagoon.com",
+  ClosedBy: User,
   DeliveryAddresses: [                              // Array of objects
     {
       Address: "343, Industrial area",              // String
@@ -94,14 +82,29 @@ const Clients = {
   ],
   Creditlimit: 2000000,                             // Number
   Openingbalance: 250000,                           // Number
-  Transports: Transports,                           // Reference of transports
-  Products: [Products]                              // Array of reference of products
+  curentOutstanding: 100000,                       // Number
+  Products: [Products],                             // Array of reference of products
+  Services: [Services]
+};
+
+const Views = {
+  name: "All delhi clients",                        // String
+  ref: "products",                                  // String                             // Product or party
+  filters: {
+    minAmount: 10000,                               // Number
+    maxAmount: 100000,                              // Number
+    location: {
+      key: "city",                                  // String
+      value: "panipat"                              // String
+      ...
+    }
+  }
 };
 
 const BankAccount = {
   Bankname: "ICICI",                                // String
   Accno: 23408324082203,                            // Number
-  CurrentBalance: 500000,                           // Number         
+  CurrentBalance: 500000,                           // Number
   IFSCcode: "ICIC000023"                            // String
 };
 
@@ -116,16 +119,23 @@ const Products = {
   ],
   HSNcode: 5454,                                    // Number
   Taxcategory: Taxes,                               // Reference of tax
-  Properties: productProperties,                    // Reference of product properties
-  Unit: "pcs",                                      // String   
+  Properties: ProductProperties,                    // Reference of product properties
+  Unit: "pcs",                                      // String
   Defaultprice: 210,                                // Number
   Stock: 500,                                       // Number
   Expiry: 1585699200000,                            // Timestamp
   Comment: "additional comment",                    // String
-  Clients: [Clients]                                // Array of reference of clients
+  Clients: [Clients],                               // Array of reference of clients
+  Sales: [Sales],
+  Purchase: [Purchase]
 };
 
-const productProperties = {
+const Services = {
+  Name: "Transport",                                // Name
+  Clients: [Clients],                               // Clients
+};
+
+const ProductProperties = {
   product: Products,                                // String
   Properties: [                                     // Array of objects
     { key: "weight", value: 100 },
@@ -135,7 +145,7 @@ const productProperties = {
   ]
 };
 
-const bills = {
+const Sales = {
   BillNumber: "213/2020-04",                        // String
   Date: 1585699200000,                              // Timestamp
   Client: Clients,                                  // Refernce of client
@@ -155,7 +165,8 @@ const bills = {
         Discount: 3000,                             // Number
         Tax: Taxes,                                 // Reference of taxes
     }
-  ],                             
+  ],
+  Services: [{}],
   Totalamount: 33000,                               // Number
   Finalamount: 30000,                               // Number
   Transport: {                                      // Reference of transport
@@ -164,7 +175,44 @@ const bills = {
       VehicleNo: "",
       Distance: 0,
       Mode: "",
-  },                            
+  },
+  Duedate: 1585699200000,                           // Timestamp
+  Comment: "asdf asdfas",                           // String
+  Billimage: "https://images.freeimages.com/images/large-previews/72c/fox-1522156.jpg",           // String
+  PaymentMode: "cash"                               // String
+};
+
+const Purchase = {
+  BillNumber: "213/2020-04",                        // String
+  Date: 1585699200000,                              // Timestamp
+  Client: Clients,                                  // Refernce of client
+  Ewaybillno: 2398428934829,                        // Number
+  Bankaccount: BankAccount,                         // Reference of account
+  Products: [                                       // Array of products
+    {
+        Product: Products,                          // Reference of products
+        Totalunits: 20,                             // Number
+        price: 200,                                 // Number
+        Othercharges: [                             // Array of other charges
+            {
+                reason: 'packing',                  // String
+                amount: 20                          // Number
+            }
+        ],
+        Discount: 3000,                             // Number
+        Tax: Taxes,                                 // Reference of taxes
+    }
+  ],
+  Services: [{}],
+  Totalamount: 33000,                               // Number
+  Finalamount: 30000,                               // Number
+  Transport: {                                      // Reference of transport
+      Transport: Transport,
+      Date: "",
+      VehicleNo: "",
+      Distance: 0,
+      Mode: "",
+  },
   Duedate: 1585699200000,                           // Timestamp
   Comment: "asdf asdfas",                           // String
   Billimage: "https://images.freeimages.com/images/large-previews/72c/fox-1522156.jpg",           // String
