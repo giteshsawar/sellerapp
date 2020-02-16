@@ -8,7 +8,7 @@ const Company = {
   phone: 9878654532,                                // Number
   otherPhones: [7865451223, 9878545632],            // Array of numbers                                     // Multiple inputs with + and - button to add new and remove
   website: "https://www.shrinshanihandloom.com",    // String
-  GSTNo: "09234JDHDSD34H34W223",                    // String
+  GSTNo: "06ALVPJ3556A1Z3",                    // String
   Address: "343, Industrial area",                  // String
   Zipcode: 132103,                                  // Number
   City: "panipat",                                  // String                                               // Dropdown field
@@ -63,7 +63,7 @@ const Clients = {
   otherPhones: [7865451223, 9878545632],            // Array of numbers
   Contacts: [User],                                 // Array of reference to the users
   profileLink: "https://ledgerapp/company/bluelagoon",           // String
-  GSTNo: "09234JDHDSD34H34W223",                    // String
+  GSTNo: "06ALVPJ3556A1Z3",                         // String
   Address: "343, Industrial area",                  // String
   Zipcode: 132103,                                  // Number
   City: "panipat",                                  // String
@@ -117,7 +117,7 @@ const Products = {
     "https://images.freeimages.com/images/large-previews/72c/fox-1522156.jpg",
     "https://images.freeimages.com/images/large-previews/72c/fox-1522156.jpg"
   ],
-  HSNcode: 5454,                                    // Number
+  HSNcode: 5705,                                    // Number
   Taxcategory: Taxes,                               // Reference of tax
   Properties: ProductProperties,                    // Reference of product properties
   Unit: "pcs",                                      // String
