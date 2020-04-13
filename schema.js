@@ -251,9 +251,9 @@ const PaymentMode = {
 
 
 Should we keep reference of products/services and clients in company object?
-How to save role?
+How to save user role?
 How to save company reference in user?
-Contacts in clients, should it be referenced to user?
+Contacts in clients objects, should it be referenced to user?
 Where to save clients delivery address?
 How to save payment mode?
 
