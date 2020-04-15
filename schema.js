@@ -29,18 +29,20 @@ const Company = {
   Users: [{ role: 'owner', user: User }] // Array of reference of users
 };
 
-const Warehouses = {
-  Company: Company, // Reference of the company (NR)
-  Warehouses: [
-    {
-      Address: '343, Industrial area', // String
-      Zipcode: 132103, // Number
-      City: 'panipat', // String
-      State: 'haryana', // String
-      Country: 'India' // String
-    }
-  ]
-};
+const Warehouses = [
+  {
+    Company: Company, // Reference of the company (NR)
+    Warehouses: [
+      {
+        Address: '343, Industrial area', // String
+        Zipcode: 132103, // Number
+        City: 'panipat', // String
+        State: 'haryana', // String
+        Country: 'India' // String
+      }
+    ]
+  }
+];
 
 const User = {
   Name: 'Prince Jain', // String
@@ -73,7 +75,7 @@ const Clients = {
   Website: 'https://www.bluelagoon.com',
   ClosedBy: User,
   Service: Expenses, // Reference to expenses
-  DeliveryAddresses: [
+  ShippingAddresses: [
     // Array of objects
     {
       Address: '343, Industrial area', // String
