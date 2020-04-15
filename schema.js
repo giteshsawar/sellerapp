@@ -258,4 +258,4 @@ How to save company reference in user?
 Contacts in clients objects, should it be referenced to user?
 Where to save clients delivery address?
 How to save payment mode?
-
+clients and products reference with each other, I should be able to fetch all the products sold to a client and all the clients that have purchase a particular product?
